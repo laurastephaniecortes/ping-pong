@@ -11,12 +11,12 @@ from .. import db
 from ..models import Player
 
 
-@auth.route('/register', methods=['GET', 'POST'])
+@auth.route('/', methods=['GET', 'POST'])
 
 def register():
     form = Registration()
     if form.validate_on_submit():
-        player = Player(first_name = form.first_name.data)
+        player = Player(first_name = form.first_name.data, score = 0)
         db.session.add(player)
         db.session.commit()
 

@@ -1,7 +1,21 @@
-{% import "bootstrap/wtf.html" as wtf %}
 
-<h1>Enter Current Score</h1>
+<html>
+<body>
 
-</br>
+<h1>Hello {{current_user.first_name}} </h1>
 
-{{wtf.quick_form(form)}}
+
+<p>You are Player One!</p>
+
+Score for {{current_user.first_name}} : {{current_user.score}}
+
+<form action="{{ url_for('game.home') }}" method="POST">
+  <input type="submit" value="add one point to {{current_user.first_name}}">
+</form>
+
+</body>
+</html>
+
+
+
+

@@ -8,9 +8,11 @@ from forms import Score
 from .. import db
 from ..models import Player
 
-@game.route('/game', methods=['GET', 'POST'])
+@game.route('/game', methods=['GET','POST'])
 def home():
-    form = Score
-    current_user.score = form.score
+    current_user.score += 1
+
     db.session.commit()
-    return render_template('game/score.html', form=form)
+    return render_template('game/score.html')
+
+
